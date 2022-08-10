@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.book_item {
+  @apply border-solid border-2 my-2 py-4 px-2;
+}
+
+h3 {
+  @apply uppercase font-bold text-xl py-2;
+}
+
+p {
+  @apply capitalize;
+}
+
+.action {
+  @apply grid md:grid-cols-2 gap-2 py-3;
+}
+
+.btn-blue,
+.btn-yellow {
+  @apply text-sm font-bold;
+}
+
+.btn-red {
+  @apply text-sm font-bold md:col-span-2;
+}
+
+.btn-green {
+  @apply text-xs font-bold;
+}

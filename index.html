@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/src/css/output.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="src/css/style.css" rel="stylesheet" />
+    <link href="src/css/sweetalert2.min.css" rel="stylesheet" />
+    <title>Bookshelf Apps</title>
+  </head>
+  <body>
+    <header class="p-4 flex justify-center items-center">
+      <h1 class="text-5xl font-bold uppercase">Bookshelf Apps</h1>
+    </header>
+    <main>
+      <div
+        class="container mx-auto flex justify-center items-center max-w-screen-lg p-5 mb-5"
+      >
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="left">
+            <div
+              id="newBookForm"
+              class="input-book bg-grayform rounded-xl shadow-lg py-8 px-4"
+            >
+              <div class="flex flex-col">
+                <h2 class="text-center text-2xl font-bold">
+                  Masukkan Buku Baru
+                </h2>
+              </div>
+              <form class="m-2" id="inputBook">
+                <div class="flex flex-col p-2">
+                  <label class="text-xl p-1" for="inputBookTitle">
+                    Judul
+                  </label>
+                  <input
+                    id="inputBookTitle"
+                    type="text"
+                    required
+                    class="h-8 rounded-xl p-2"
+                  />
+                </div>
+                <div class="flex flex-col p-2">
+                  <label class="text-xl p-1" for="inputBookAuthor">
+                    Penulis
+                  </label>
+                  <input
+                    class="h-8 rounded-xl p-2"
+                    id="inputBookAuthor"
+                    type="text"
+                    required
+                  />
+                </div>
+                <div class="flex flex-col p-2">
+                  <label class="text-xl p-1" for="inputBookYear"> Tahun </label>
+                  <input
+                    class="h-8 rounded-xl p-2"
+                    id="inputBookYear"
+                    type="number"
+                    required
+                  />
+                </div>
+                <div class="p-2 flex items-center gap-3">
+                  <label class="text-lg font-bold" for="inputBookIsComplete">
+                    Selesai dibaca
+                  </label>
+                  <input class="h-8" id="inputBookIsComplete" type="checkbox" />
+                </div>
+                <button
+                  class="btn-grad font-bold mx-auto"
+                  id="bookSubmit"
+                  type="submit"
+                >
+                  Masukkan Buku
+                </button>
+              </form>
+            </div>
+            <div
+              id="editBookForm"
+              class="input-book bg-grayform rounded-xl shadow-lg py-8 px-4 hidden"
+            >
+              <div class="flex flex-col">
+                <h2 class="text-center text-2xl font-bold">Edit Buku</h2>
+              </div>
+              <form class="m-2" id="editBook">
+                <div class="flex flex-col p-2">
+                  <label class="text-xl p-1" for="editBookTitle"> Judul </label>
+                  <input
+                    id="editBookTitle"
+                    type="text"
+                    required
+                    class="h-8 rounded-xl p-2"
+                  />
+                </div>
+                <div class="flex flex-col p-2">
+                  <label class="text-xl p-1" for="editBookAuthor">
+                    Penulis
+                  </label>
+                  <input
+                    class="h-8 rounded-xl p-2"
+                    id="editBookAuthor"
+                    type="text"
+                    required
+                  />
+                </div>
+                <div class="flex flex-col p-2">
+                  <label class="text-xl p-1" for="editBookYear"> Tahun </label>
+                  <input
+                    class="h-8 rounded-xl p-2"
+                    id="editBookYear"
+                    type="number"
+                    required
+                  />
+                </div>
+                <button
+                  class="btn-grad font-bold mx-auto my-8"
+                  id="bookSubmit"
+                  type="submit"
+                >
+                  Edit Buku
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div
+            class="right md:col-span-2 bg-grayform rounded-xl shadow-lg py-8 px-4"
+          >
+            <form
+              class="flex flex-col md:flex-row items-center min-w-full gap-3 px-4"
+              id="searchBook"
+            >
+              <label
+                for="searchBookTitle"
+                class="mb-2 text-sm font-medium hidden"
+              >
+                search
+              </label>
+              <input
+                class="h-10 md:w-screen rounded-xl p-2"
+                id="searchBookTitle"
+                type="text"
+                placeholder="Masukkan judul buku"
+              />
+              <button
+                class="btn-grad rounded-xl"
+                id="searchSubmit"
+                type="submit"
+              >
+                Cari
+              </button>
+            </form>
+
+            <div class="flex items-center justify-center py-8">
+              <div class="grid md:grid-cols-2 min-w-full gap-4 px-4">
+                <div class="book_self bg-white rounded-xl shadow-lg py-4 px-4">
+                  <h2 class="text-center text-xl py-4 font-bold">
+                    Belum selesai dibaca
+                  </h2>
+                  <div id="incompleteBookshelfList" class="book_list"></div>
+                </div>
+                <div class="book_self bg-white rounded-xl shadow-lg py-4 px-4">
+                  <h2 class="text-center text-xl py-4 font-bold">
+                    Selesai dibaca
+                  </h2>
+                  <div id="completeBookshelfList" class="book_list"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="/src/js/main.js"></script>
+    <script src="/src/js/sweetalert2.min.js"></script>
+  </body>
+</html>
